@@ -32,6 +32,10 @@ A neovim plugin for generating fake data. It can be used to create random names,
 > For modules and supported functions see [faker api reference](https://fakerjs.dev/api/)<br/>
 > For supported locales see [available locales](https://fakerjs.dev/guide/localization.html#available-locales)
 
+### Autocompletion
+
+When you type the `:Faker` command and press `<space>` followed by `<tab>`, completions for the faker modules will appear. After choosing or typing a faker module and pressing `<space>` and `<tab>` again, completions for the selected faker module functions will be displayed.
+
 ### Examples
 
 ```lua
