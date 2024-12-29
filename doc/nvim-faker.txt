@@ -1,67 +1,80 @@
-*nvim-plugin-template.txt*    For NVIM v0.8.0    Last change: 2024 December 16
+*nvim-faker.txt*                                                  *nvim-faker*
 
-==============================================================================
-Table of Contents                     *nvim-plugin-template-table-of-contents*
+nvim-faker - A Neovim plugin for generating fake data
+=====================================================
 
-1. nvim-plugin-template            |nvim-plugin-template-nvim-plugin-template|
-  - Usage                    |nvim-plugin-template-nvim-plugin-template-usage|
-  - Format                  |nvim-plugin-template-nvim-plugin-template-format|
-  - Test                      |nvim-plugin-template-nvim-plugin-template-test|
-  - CI                          |nvim-plugin-template-nvim-plugin-template-ci|
-  - More                      |nvim-plugin-template-nvim-plugin-template-more|
-  - License MIT        |nvim-plugin-template-nvim-plugin-template-license-mit|
+CONTENTS                                                 *nvim-faker-contents*
+    - |nvim-faker-introduction|        Introduction
+    - |nvim-faker-installation|        Installation
+    - |nvim-faker-commands|            Commands
+    - |nvim-faker-autocompletion|      Autocompletion
+    - |nvim-faker-examples|            Examples
+    - |nvim-faker-license|             License
+    - |nvim-faker-author|              Author
 
-==============================================================================
-1. nvim-plugin-template            *nvim-plugin-template-nvim-plugin-template*
+INTRODUCTION                                         *nvim-faker-introduction*
 
-Neovim plugin template; includes automatic documentation generation from
-README, integration tests with Busted, and linting with Stylua
+nvim-faker is a Neovim plugin for generating fake data. It can be used to create
+random names, addresses, phone numbers, and other types of data, which is useful
+for testing and development purposes. It uses [@tehdb/faker-cli](https://www.npmjs.com/package/@tehdb/faker-cli)
+under the hood which is based on [Faker](https://fakerjs.dev).
 
+INSTALLATION                                         *nvim-faker-installation*
 
-USAGE                        *nvim-plugin-template-nvim-plugin-template-usage*
+Prerequisites:
+- [node.js](https://nodejs.org) in at least version 18.0.0 or higher
+- [npm](https://www.npmjs.com) in at least version 9.0.0 or higher
 
-1. Click `use this template` button generate a repo on your github.
-2. Clone your plugin repo. Open terminal then cd plugin directory.
-3. Run `python3 rename.py your-plugin-name`. This will replace all `nvim-plugin-template` to your `plugin-name`.
-Then it will prompt you input `y` or `n` to remove example codes in `init.lua` and
-`test/plugin_spec.lua`. If you are familiar this repo just input `y`. If you are looking at this template for the first time I suggest you inspect the contents. After this step `rename.py` will also auto-remove.
+For faster `:Faker` command executions, it is recommended to install the faker
+CLI as a global npm package using:
 
-Now you have a clean plugin environment. Enjoy!
+    npm i -g @tehdb/faker-cli
 
+Otherwise, [npx](https://docs.npmjs.com/cli/v11/commands/npx) is used to run
+faker commands, which consumes more time to execute.
 
-FORMAT                      *nvim-plugin-template-nvim-plugin-template-format*
+With lazy.nvim:
 
-The CI uses `stylua` to format the code; customize the formatting by editing
-`.stylua.toml`.
+    ```lua
+    {
+      'tehdb/nvim-faker',
+      config = function()
+        require('nvim-faker').setup({
+          use_global_package = true -- use global npm package otherwise npx
+          (default: false)
+        })
+      end
+    }
+    ```
 
+COMMANDS                                                 *nvim-faker-commands*
 
-TEST                          *nvim-plugin-template-nvim-plugin-template-test*
+    :Faker <module> <function> [value]... [key:value]... [locale]
 
-Uses busted <https://lunarmodules.github.io/busted/> for testing. Installs by
-using `luarocks --lua-version=5.1 install vusted` then runs `vusted ./test` for
-your test cases. `vusted` is a wrapper of Busted especially for testing Neovim
-plugins.
+For modules and supported functions see [faker api reference](https://fakerjs.dev/api/)
+For supported locales see [available locales](https://fakerjs.dev/guide/localization.html#available-locales)
 
-Create test cases in the `test` folder. Busted expects files in this directory
-to be named `foo_spec.lua`, with `_spec` as a suffix before the `.lua` file
-extension. For more usage details please check busted usage
-<https://lunarmodules.github.io/busted/>
+AUTOCOMPLETION                                     *nvim-faker-autocompletion*
 
+When you type the `:Faker` command and press `<space>` followed by `<tab>`,
+completions for the faker modules will appear. After choosing or typing a 
+faker module and pressing `<space>` and `<tab>` again, completions for the 
+selected faker module functions will be displayed.
 
-CI                              *nvim-plugin-template-nvim-plugin-template-ci*
+EXAMPLES                                                 *nvim-faker-examples*
 
-- Auto generates doc from README.
-- Runs the Busted/vusted integration tests
-- Lints with `stylua`.
+    :Faker lorem words de
+    :Faker lorem words 5
+    :Faker lorem words 5 de
+    :Faker lorem words min:4 max:5
+    :Faker lorem words min:4 max:5 de
+    :Faker lorem sentences 2 '<br>'
+    :Faker lorem sentences 2 '<br>' de
 
+LICENSE                                                   *nvim-faker-license*
 
-MORE                          *nvim-plugin-template-nvim-plugin-template-more*
+This plugin is licensed under the MIT License.
 
-To see this template in action, take a look at my other plugins.
+AUTHOR                                                     *nvim-faker-author*
 
-
-LICENSE MIT            *nvim-plugin-template-nvim-plugin-template-license-mit*
-
-Generated by panvimdoc <https://github.com/kdheepak/panvimdoc>
-
-vim:tw=78:ts=8:noet:ft=help:norl:
+TeHdb <tehdb@me.com>

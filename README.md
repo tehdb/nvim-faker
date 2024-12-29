@@ -1,6 +1,6 @@
 # nvim-faker
 
-A neovim plugin for generating fake data. It can be used to create random names, addresses, phone numbers, and other types of data, which is useful for testing and development purposes. It uses [@tehdb/faker-cli](`https://www.npmjs.com/package/@tehdb/faker-cli`) under the hood which is based on [Faker](<https://fakerjs.dev>)
+A neovim plugin for generating fake data. It can be used to create random names, addresses, phone numbers, and other types of data, which is useful for testing and development purposes. It uses [@tehdb/faker-cli](https://www.npmjs.com/package/@tehdb/faker-cli) under the hood which is based on [Faker](https://fakerjs.dev)
 
 ## 📦 Install
 

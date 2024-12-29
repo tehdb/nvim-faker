@@ -15,6 +15,7 @@ local config = {
 function M.setup(user_config)
   config = vim.tbl_deep_extend('force', config, user_config or {})
 
+  -- TODO: check out nvim-nio for async tasks
   vim.schedule(function()
     if config.use_global_package == true then
       fakerCliAvaileble = faker_cli.is_globally_installed(config.npm_package)
