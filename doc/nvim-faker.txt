@@ -63,6 +63,7 @@ selected faker module functions will be displayed.
 
 EXAMPLES                                                 *nvim-faker-examples*
 
+    :Faker lorem words
     :Faker lorem words de
     :Faker lorem words 5
     :Faker lorem words 5 de

@@ -11,7 +11,7 @@ A neovim plugin for generating fake data. It can be used to create random names,
 
 > For faster `:Faker` command executions, it is recommended to install the faker CLI as a global npm package using `npm i -g @tehdb/faker-cli`. Otherwise, [npx](https://docs.npmjs.com/cli/v11/commands/npx) is used to run faker commands, which consumes more time to execute.
 
-### With lazy.nvim
+### With [lazy.nvim](https://lazy.folke.io)
 
 ```lua
 
@@ -39,6 +39,7 @@ When you type the `:Faker` command and press `<space>` followed by `<tab>`, comp
 ### Examples
 
 ```lua
+:Faker lorem words
 :Faker lorem words de
 :Faker lorem words 5
 :Faker lorem words 5 de
