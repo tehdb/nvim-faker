@@ -25,6 +25,32 @@ A neovim plugin for generating fake data. It can be used to create random names,
 }
 ```
 
+### With [LuaRocks](https://luarocks.org)
+
+```sh
+luarocks install nvim-faker
+```
+
+#### or with [rocks.nvim](https://github.com/nvim-neorocks/rocks.nvim)
+
+```lua
+:Rocks nvim-faker
+```
+
+#### using init.lua
+
+```lua
+require('faker').setup{}
+```
+
+#### using init.vim
+
+```vim
+lua << EOF
+require('faker').setup{}
+EOF
+```
+
 ## 🪄 Commands
 
 `:Faker <module> <function> [param-value]... [param-key:param-value]... [locale]`
